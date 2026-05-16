@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python uaready_validator.py test)",
+      "Bash(python uaready_validator.py email \"राम@नेपाल.नेपाल\")",
+      "Bash(python uaready_validator.py domain \"नेपाल.नेपाल\")",
+      "Bash(pip install *)",
+      "Bash(npm install *)",
+      "Bash(uvicorn main:app --port 8000)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:8000/health)",
+      "Bash(curl -s -X POST http://localhost:8000/api/validate/email -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"राम@नेपाल.नेपाल\\\\\"}\")",
+      "Bash(curl -s http://localhost:8000/api/test)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'Score: {d[\\\\\"score\\\\\"]}'\\); [print\\(f'  {\\\\\"PASS\\\\\" if r[\\\\\"pass\\\\\"] else \\\\\"FAIL\\\\\"} {r[\\\\\"kind\\\\\"]:6} {r[\\\\\"desc\\\\\"]}'\\) for r in d['results']]\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(timeout 3)",
+      "Bash(python -c \"import dotenv; print\\('dotenv ok'\\)\")",
+      "Bash(python -c \"from main import app; print\\('main ok'\\)\")"
+    ]
+  }
+}
