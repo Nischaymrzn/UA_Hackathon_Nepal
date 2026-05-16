@@ -20,7 +20,10 @@
       "PowerShell($p = Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"Killed PID $p\" } else { \"Nothing on 8000\" })",
       "PowerShell(Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | Where-Object { $_.OwningProcess -gt 4 } | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue; \"Killed $\\($_.OwningProcess\\)\" })",
       "PowerShell(netstat -ano)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(uvicorn main:app --reload --port 8000)",
+      "Bash(curl -s -X POST http://localhost:8000/api/send-otp -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"sucidesquade4@gmail.com\\\\\"}\")",
+      "Bash(curl -s -X POST http://localhost:8000/api/confirm -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"sucidesquade4@gmail.com\\\\\"}\")"
     ]
   }
 }
