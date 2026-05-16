@@ -137,7 +137,7 @@ def api_send_otp(req: OtpSendRequest):
         _send_otp_email(req.email, code)
         return {"sent": True}
     except smtplib.SMTPAuthenticationError:
-        return {"sent": False, "error": "SMTP authentication failed. Check SMTP_USER and SMTP_PASS in backend/.env."}
+        return {"sent": False, "error": "SMTP authentication failed — check SMTP_USER and SMTP_PASS in your .env file."}
     except Exception as exc:
         return {"sent": False, "error": f"Failed to send email: {exc}"}
 

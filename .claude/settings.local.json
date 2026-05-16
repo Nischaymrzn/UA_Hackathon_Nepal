@@ -15,7 +15,12 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(timeout 3)",
       "Bash(python -c \"import dotenv; print\\('dotenv ok'\\)\")",
-      "Bash(python -c \"from main import app; print\\('main ok'\\)\")"
+      "Bash(python -c \"from main import app; print\\('main ok'\\)\")",
+      "Bash(curl -s -X POST http://localhost:8000/api/send-otp -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"test@example.com\\\\\"}\")",
+      "PowerShell($p = Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess; if \\($p\\) { Stop-Process -Id $p -Force; \"Killed PID $p\" } else { \"Nothing on 8000\" })",
+      "PowerShell(Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | Where-Object { $_.OwningProcess -gt 4 } | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue; \"Killed $\\($_.OwningProcess\\)\" })",
+      "PowerShell(netstat -ano)",
+      "Bash(python -c ' *)"
     ]
   }
 }
